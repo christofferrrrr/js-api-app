@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duelist Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=technor@400,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <figure class="nav-item">
+                <a href="#home">
+                    <img class="nav-logo" src="assets/ygologo.png" alt="Duelist Guide Home">
+                </a>
+            </figure>
+            <button class="burger-menu" id="burger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-item nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a class="nav-link" href="#DECKS">DECKS</a></li>
+                    <li class="dropdown">
+                        <a class="nav-link" href="#RANDOMIZE">RANDOMIZE</a>
+                        <ul class="dropdown-menu">
+                            <li><a id="random-card" href="#">Random Card</a></li>
+                            <li><a id="random-deck" href="#">Random Deck/Archetype</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link" href="#GAME-RULES">GAME RULES</a></li>
+                </ul>
+            </div>
+            <div class="nav-item nav-search-container">
+                <input class="nav-search" type="text" placeholder="Search Cards here...">
+                <button class="nav-search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg> 
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Yu-Gi-Oh Duelist Guide</h1>
+        <form id="card-search-form">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search Cards here...">
+                <button class="search-btn" type="submit">Search</button>
+            </div>
+            <div class="filters-container">
+                <label for="type-select">Type:</label>
+                <select id="type-select" class="form-control">
+                    <option>Select Type</option>
+                    <option>Effect Monster</option>
+                    <option>Flip Effect Monster</option>
+                    <option>Fusion Monster</option>
+                    <option>Gemini Monster</option>
+                    <option>Link Monster</option>
+                    <option>Normal Monster</option>
+                    <option>Normal Tuner Monster</option>
+                    <option>Pendulum Effect Fusion Monster</option>
+                    <option>Pendulum Effect Monster</option>
+                    <option>Pendulum Effect Ritual Monster</option>
+                    <option>Pendulum Flip Effect Monster</option>
+                    <option>Pendulum Normal Monster</option>
+                    <option>Pendulum Tuner Effect Monster</option>
+                    <option>Ritual Effect Monster</option>
+                    <option>Ritual Monster</option>
+                    <option>Skill Card</option>
+                    <option>Spell Card</option>
+                    <option>Spirit Monster</option>
+                    <option>Synchro Monster</option>
+                    <option>Synchro Pendulum Effect Monster</option>
+                    <option>Synchro Tuner Monster</option>
+                    <option>Token</option>
+                    <option>Toon Monster</option>
+                    <option>Trap Card</option>
+                    <option>Tuner Monster</option>
+                    <option>Union Effect Monster</option>
+                    <option>XYZ Monster</option>
+                    <option>XYZ Pendulum Effect Monster</option> ?&gt;
+                </select>
+
+                <label for="attribute-select">Attribute:</label>
+                <select id="attribute-select" class="form-control">
+                    <option>Select Attribute</option>
+                    <option>EARTH</option>
+                    <option>WATER</option>
+                    <option>FIRE</option>
+                    <option>WIND</option>
+                    <option>LIGHT</option>
+                    <option>DARK</option>
+                    <option>DIVINE</option>
+                </select>
+
+                <label for="race-select">Race:</label>
+                <select id="race-select" class="form-control">
+                    <option>Select Race</option>
+                    <option>Aqua</option>
+                    <option>Beast</option>
+                    <option>Beast-Warrior</option>
+                    <option>Continuous</option>
+                    <option>Counter</option>
+                    <option>Creator-God</option>
+                    <option>Cyberse</option>
+                    <option>Dinosaur</option>
+                    <option>Divine-Beast</option>
+                    <option>Dragon</option>
+                    <option>Equip</option>
+                    <option>Fairy</option>
+                    <option>Field</option>
+                    <option>Fiend</option>
+                    <option>Fish</option>
+                    <option>Illusion</option>
+                    <option>Insect</option>
+                    <option>Machine</option>
+                    <option>Normal</option>
+                    <option>Plant</option>
+                    <option>Psychic</option>
+                    <option>Pyro</option>
+                    <option>Quick-Play</option>
+                    <option>Reptile</option>
+                    <option>Ritual</option>
+                    <option>Rock</option>
+                    <option>Sea Serpent</option>
+                    <option>Spellcaster</option>
+                    <option>Thunder</option>
+                    <option>Warrior</option>
+                    <option>Winged Beast</option>
+                    <option>Wyrm</option>
+                    <option>Zombie</option> ?&gt;
+                </select>
+
+                <label for="archetype-select">Archetype:</label>
+                <select id="archetype-select" class="form-control">
+                    <option>Select Archetype</option>
+                    <option>-Eyes Dragon</option><option>"C"</option><option>@Ignister</option><option>A-to-Z</option><option>A.I.</option><option>ABC</option><option>Abyss Actor</option><option>Abyss Script</option><option>Abyss-</option><option>Adamancipator</option><option>Advanced Crystal Beast</option><option>Adventurer Token</option><option>Aesir</option><option>Aether</option><option>Albaz Dragon</option><option>Alien</option><option>Alligator</option><option>Allure Queen</option><option>Ally of Justice</option><option>Altergeist</option><option>Amazement</option><option>Amazoness</option><option>Amorphage</option><option>Ancient Gear</option><option>Ancient Treasure</option><option>Ancient Warriors</option><option>Anti</option><option>Apoqliphort</option><option>Appliancer</option><option>Aquaactress</option><option>Aquamirror</option><option>Arcana Force</option><option>Archfiend</option><option>Armed Dragon</option><option>Aroma</option><option>Artifact</option><option>Ashened</option><option>Assault Mode</option><option>Atlantean</option><option>Attraction</option><option>Attribute Summoner</option><option>Azamina</option><option>B.E.S.</option><option>Bamboo Sword</option><option>Barbaros</option><option>Barian's</option><option>Batteryman</option><option>Battleguard</option><option>Battlewasp</option><option>Battlin' Boxer</option><option>Battlin' Boxing</option><option>Beetrooper</option><option>Black Luster Soldier</option><option>Blackwing</option><option>Blaze Accelerator</option><option>Blue Tears</option><option>Blue-Eyes</option><option>Bonding</option><option>Book of</option><option>Boot-Up</option><option>Borrel</option><option>Bounzer</option><option>Branded</option><option>Broken World</option><option>Bugroth</option><option>Bujin</option><option>Burning Abyss</option><option>Butterfly</option><option>Butterspy</option><option>Bystial</option><option>Cataclysmic</option><option>Celtic Guard</option><option>Centur-Ion</option><option>Chaos</option><option>Chaos Phantom</option><option>Charmer</option><option>Chemicritter</option><option>Chimera</option><option>Chronomaly</option><option>Chrysalis</option><option>Cipher</option><option>Circular</option><option>Clear</option><option>Clear Wing</option><option>Cloudian</option><option>Code Talker</option><option>Codebreaker</option><option>Constellar</option><option>Contact</option><option>Cosmic Synchro Monster</option><option>Counter Fairy</option><option>Crusadia</option><option>Crystal</option><option>Crystal Beast</option><option>Crystron</option><option>Cubic</option><option>Cupid</option><option>Curse of Dragon</option><option>CXyz</option><option>Cyber</option><option>Cyber Angel</option><option>Cyber Dragon</option><option>Cyberdark</option><option>Cynet</option><option>D.D.</option><option>D/D</option><option>Danger!</option><option>Dark Contract</option><option>Dark counterpart</option><option>Dark Magician</option><option>Dark Scorpion</option><option>Dark World</option><option>Darklord</option><option>Deep Sea</option><option>Demise</option><option>Deskbot</option><option>Despia</option><option>Destiny HERO</option><option>Destruction Sword</option><option>Diabellstar</option><option>Dice</option><option>Digital Bug</option><option>Dinomist</option><option>Dinomorphia</option><option>Dinowrestler</option><option>Divine Dragon</option><option>Djinn</option><option>Dododo</option><option>Dogmatika</option><option>Doll</option><option>Doll Monster</option><option>Doodle Beast</option><option>Doodlebook</option><option>Doriado</option><option>Draconia</option><option>Dracoslayer</option><option>Dracoverlord</option><option>Dragonmaid</option><option>Dragunity</option><option>Dream Mirror</option><option>Drytron</option><option>Dual Avatar</option><option>Duston</option><option>Earthbound</option><option>Edge Imp</option><option>Egyptian God</option><option>Eldlich</option><option>Elemental HERO</option><option>Elemental Lord</option><option>Elementsaber</option><option>Emblema</option><option>Empower</option><option>Empowered Warrior</option><option>Endymion</option><option>Evil Eye</option><option>Evil HERO</option><option>Evil★Twin</option><option>Evol</option><option>Evolsaur</option><option>Evoltile</option><option>Evolzar</option><option>Exchange of the Spirit</option><option>Exodd</option><option>Exodia</option><option>Exosister</option><option>Eyes Restrict</option><option>F.A.</option><option>Fabled</option><option>Fairy</option><option>Fairy Tail</option><option>Favorite</option><option>Felgrand</option><option>Field Searcher</option><option>Fiendsmith</option><option>Fire Fist</option><option>Fire Formation</option><option>Fire King</option><option>Firewall</option><option>Fishborg</option><option>Flame Swordsman</option><option>Flamvell</option><option>Fleur</option><option>Floowandereeze</option><option>Flower Cardian</option><option>Fluffal</option><option>Forbidden</option><option>Fortune Fairy</option><option>Fortune Lady</option><option>Fossil</option><option>Frightfur</option><option>Frog</option><option>From the Underworld</option><option>Fur Hire</option><option>Fusion</option><option>G Golem</option><option>Gadget</option><option>Gagaga</option><option>Gaia Knight</option><option>Gaia The Fierce Knight</option><option>Galaxy</option><option>Galaxy-Eyes</option><option>Gandora</option><option>Gate Guardian</option><option>Geargia</option><option>Gem-</option><option>Generaider</option><option>Genex</option><option>Ghostrick</option><option>Ghoti</option><option>Gimmick Puppet</option><option>Gishki</option><option>Gizmek</option><option>Glacial Beast</option><option>Gladiator Beast</option><option>Goblin</option><option>Gogogo</option><option>Gold Pride</option><option>Golden Castle of Stromberg</option><option>Golden Land</option><option>Gorgonic</option><option>Gouki</option><option>GranSolfachord</option><option>Gravekeeper's</option><option>Graydle</option><option>Greed</option><option>Grepher</option><option>Guardian</option><option>Guardragon</option><option>Gunkan</option><option>Gusto</option><option>Harpie</option><option>Hazy</option><option>Heart</option><option>Herald</option><option>Heraldic</option><option>Heraldry</option><option>HERO</option><option>Heroic</option><option>Hi-Speedroid</option><option>Hieratic</option><option>Hole</option><option>Holy Knight</option><option>Horus</option><option>Horus the Black Flame Dragon</option><option>Hyperion</option><option>Ice Barrier</option><option>Icejade</option><option>Igknight</option><option>Impcantation</option><option>Infernity</option><option>Infernoble Arms</option><option>Infernoble Knight</option><option>Infernoid</option><option>Infestation</option><option>Infinitrack</option><option>Invoked</option><option>Inzektor</option><option>Iron Chain</option><option>Jar</option><option>Jester</option><option>Jinzo</option><option>Junk</option><option>Jurrac</option><option>Kaiju</option><option>Kairyu-Shin</option><option>Karakuri</option><option>Kashtira</option><option>Ki-sikil</option><option>Knight</option><option>Knightmare</option><option>Koa'ki Meiru</option><option>Koala</option><option>Kozmo</option><option>Krawler</option><option>Kuriboh</option><option>Labrynth</option><option>Labyrinth Wall</option><option>Lady of Lament</option><option>Laval</option><option>Legendary Knight</option><option>Libromancer</option><option>Lightsworn</option><option>Lil-la</option><option>Live☆Twin</option><option>Lswarm</option><option>Lunalight</option><option>Lyrilusc</option><option>Machina</option><option>Machine Angel</option><option>Madolche</option><option>Madoor</option><option>Magical Musket</option><option>Magician</option><option>Magician Girl</option><option>Magikey</option><option>Magistus</option><option>Magnet Warrior</option><option>Majespecter</option><option>Majestic</option><option>Maju</option><option>Malefic</option><option>Malicevorous</option><option>Man-Eater Bug</option><option>Mannadium</option><option>Marincess</option><option>Martial Art Spirit</option><option>Mask</option><option>Masked HERO</option><option>Materiactor</option><option>Mathmech</option><option>Mayakashi</option><option>Mecha Phantom Beast</option><option>Megalith</option><option>Mekk-Knight</option><option>Meklord</option><option>Melffy</option><option>Melodious</option><option>Memento</option><option>Mermail</option><option>Metalfoes</option><option>Metalmorph</option><option>Metaphys</option><option>Mikanko</option><option>Millennium</option><option>Mirror Trap</option><option>Mist Valley</option><option>Mokey Mokey</option><option>Monarch</option><option>Morganite</option><option>Morphtronic</option><option>Mulcharmy</option><option>Mystical Beast of the Forest</option><option>Mythical Beast</option><option>Myutant</option><option>Naturia</option><option>Nekroz</option><option>Nemeses</option><option>Nemleria</option><option>Nemurelia</option><option>Neo Space</option><option>Neo-Spacian</option><option>Neos</option><option>Nephthys</option><option>Nimble</option><option>Ninja</option><option>Ninjitsu Art</option><option>Noble Arms</option><option>Noble Knight</option><option>Nordic</option><option>Nouvelles</option><option>Number</option><option>Numeron</option><option>Odd-Eyes</option><option>Ogdoadic</option><option>Ojama</option><option>Onomat</option><option>Orcust</option><option>Overlay</option><option>P.U.N.K.</option><option>Paladins of Dragons</option><option>Paleozoic</option><option>Parasite</option><option>Parshath</option><option>Patissciel</option><option>Pendulum</option><option>Pendulum Dragon</option><option>Penguin</option><option>Performage</option><option>Performapal</option><option>Phantasm</option><option>Phantasm Spiral</option><option>Phantom Knights</option><option>Photon</option><option>Plunder Patroll</option><option>Polymerization</option><option>Possessed</option><option>Potan</option><option>Power Tool</option><option>Prank-Kids</option><option>Predap</option><option>Predaplant</option><option>Prediction Princess</option><option>Priestess</option><option>Primoredial</option><option>Prophecy</option><option>PSY-Frame</option><option>Puppet</option><option>Purrely</option><option>Qli</option><option>Ragnaraika</option><option>Raidraptor</option><option>Rainbow Bridge</option><option>Rank-Up-Magic</option><option>Recipe</option><option>Red-Eyes</option><option>Relinquished</option><option>Reptilianne</option><option>Rescue Squad</option><option>Rescue-ACE</option><option>Resonator</option><option>Rikka</option><option>Risebell</option><option>Ritual Beast</option><option>Roid</option><option>Rokket</option><option>Roland</option><option>Rose</option><option>Rose Dragon</option><option>Runick</option><option>S-Force</option><option>Saber</option><option>Sacred Beast</option><option>Salamandra</option><option>Salamangreat</option><option>Sangen</option><option>Scareclaw</option><option>Scrap</option><option>Scrap-Iron</option><option>Sea Stealth</option><option>Secret Six Samurai</option><option>Seventh</option><option>Shaddoll</option><option>Shark</option><option>Shining Sarcophagus</option><option>Shinobird</option><option>Shiranui</option><option>Signature move</option><option>Silent Magician</option><option>Silent Swordsman</option><option>Simorgh</option><option>Sinful Spoils</option><option>Six Samurai</option><option>Six Strike</option><option>Skilled Magician</option><option>Skull Servant</option><option>Sky Scourge</option><option>Sky Striker</option><option>Slime</option><option>Snake-Eye</option><option>Solemn</option><option>Solfachord</option><option>Speedroid</option><option>Spellbook</option><option>Sphinx</option><option>Spider</option><option>Spirit Message</option><option>Spiritual Art</option><option>Spright</option><option>Springans</option><option>SPYRAL</option><option>Star</option><option>Star Seraph</option><option>Stardust</option><option>Starliege</option><option>Starry Knight</option><option>Stealth Kragen</option><option>Steelswarm</option><option>Stellarknight</option><option>Subterror</option><option>Sunavalon</option><option>Sunseed</option><option>Sunvine</option><option>Super Defense Robot</option><option>Super Quant</option><option>Superheavy</option><option>Superheavy Samurai</option><option>Supreme King</option><option>Swarm of</option><option>Swordsoul</option><option>Sylvan</option><option>Symphonic Warrior</option><option>Synchro</option><option>Synchron</option><option>T.G.</option><option>Tachyon</option><option>Tearlaments</option><option>Tellarknight</option><option>Tenpai Dragon</option><option>Tenyi</option><option>The Agent</option><option>The Sanctuary in the Sky</option><option>The Weather</option><option>Therion</option><option>Thunder Dragon</option><option>Time Thief</option><option>Timelord</option><option>Tindangle</option><option>Tistina</option><option>Toon</option><option>Toy</option><option>Train</option><option>Transcendosaurus</option><option>Trap Hole</option><option>Trap Monster</option><option>Traptrix</option><option>Tri-Brigade</option><option>Triamid</option><option>Trickstar</option><option>True Draco</option><option>U.A.</option><option>Umbral Horror</option><option>Umi</option><option>Unchained</option><option>Underworld</option><option>Ursarctic</option><option>Utopia</option><option>Utopic</option><option>Vaalmonica</option><option>Valkyrie</option><option>Vampire</option><option>Vanquish Soul</option><option>Vassal</option><option>Vaylantz</option><option>Veda</option><option>Vendread</option><option>Venom</option><option>Vernusylph</option><option>Virtual World</option><option>Visas</option><option>Vision HERO</option><option>Voiceless Voice</option><option>Void</option><option>Volcanic</option><option>Vylon</option><option>War Rock</option><option>Watt</option><option>Wedju</option><option>White</option><option>White Forest</option><option>Wicked God</option><option>Wight</option><option>Wind-Up</option><option>Windwitch</option><option>Witchcrafter</option><option>with Eyes of Blue</option><option>World Chalice</option><option>World Legacy</option><option>Worm</option><option>X-Saber</option><option>Xyz</option><option>Yang Zing</option><option>Yosenju</option><option>Yubel</option><option>Zefra</option><option>Zera</option><option>Zexal</option><option>Zombie counterpart</option><option>Zoodiac</option> ?&gt;
+                </select>
+
+            </div>
+        </form>
+        <div id="card-container"></div>
+    </main>
+    
+
+    <section id="GAME-RULES" class="section container">
+        
+        <h2>Rulebook & Beginner's Guide</h2>
+        <div class="game-rule-container">
+            <div class="game-rule-content">
+                <h3>Official Rulebook</h3>
+                <img class="game-rule-img" src="assets/officialrulebook.png" alt="Official Rulebook">
+                <a href="https://img.yugioh-card.com/en/downloads/rulebook/SD_RuleBook_EN_10.pdf" class="dl-btn" target="_blank" download>Download</a>
+            </div>
+            <div class="game-rule-content">
+                <h3>Starter Deck - Link Strike - Beginner's Guide</h3>
+                <img class="game-rule-img" src="assets/Starterdeck beginner's guide.png" alt="Starter Deck">
+                <a href="https://img.yugioh-card.com/en/downloads/rulebook/YS17_BG_EN.pdf" class="dl-btn" target="_blank" download>Download</a>
+            </div>
+            <div class="game-rule-content">
+                <h3>Yu-Gi-Oh! TCG Speed Duel Guide</h3>
+                <img class="speed-duel-img" src="assets/YGO TCG speed duel.png" alt="Yu-Gi-Oh! TCG Speed Duel Guide">
+                <a href="https://img.yugioh-card.com/en/downloads/rulebook/Speed_Duel_Guide_EN.pdf" class="dl-btn" target="_blank" download>Download</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-header" class="chatbot-header">
+            <span>OpenAI Chatbot</span>
+            <button id="close-chatbot" class="close-chatbot">✖</button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="chatbot-message bot-message">How can I help you today?</div>
+        </div>
+        <div class="chatbot-input-container">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Type your message...">
+            <button id="send-message" class="send-message">Send</button>
+        </div>
+    </div>
+    <button id="open-chatbot" class="open-chatbot">Chat</button>
+
+    <footer>
+        <p>&copy; 2024 developed by Christopher Gamban</p>
+    </footer> 
+</body>
+</html>
