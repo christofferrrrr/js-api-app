@@ -418,8 +418,8 @@ select {
 }
 
 .card {
-    background-color: rgba(245, 245, 245, 0.4);
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -431,7 +431,10 @@ select {
     text-align: center;
     color: var(--clr-dark);
     text-shadow: 2px 2px 5px var(--clr-light);
-   
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.1); 
 }
 
 .card img {
@@ -583,18 +586,22 @@ h3 {
 }
 
 .game-rule-img{
-    width: auto;
+    width: 13rem;
     height: 300px;
-    display:block
+    display:block;
+
+
 }
 
 .speed-duel-img{
-    width: auto;
+    width: 23rem;
     height: var(--size-9xl);
+    display: block;
 }
 
 .game-rule-container{
     display:flex;
+    flex: wrap;
     justify-items: center;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -604,6 +611,7 @@ h3 {
 
 .game-rule-content {
     display: flex;
+    flex: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;

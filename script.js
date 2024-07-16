@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const cards = data.data;
     
             const filteredCards = cards.filter(card => {
-                // Normalize archetype values to lower case for case-insensitive comparison
                 const cardArchetype = (card.archetype || '').toLowerCase();
                 const filterArchetype = filters.archetype.toLowerCase();
     
@@ -90,81 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Chatbot
-    const openChatbotButton = document.getElementById('open-chatbot');
-    const closeChatbotButton = document.getElementById('close-chatbot');
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const sendMessageButton = document.getElementById('send-message');
-
-    function addMessage(message, type) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add(type === 'user-message' ? 'user-message' : 'bot-message');
-        messageElement.innerText = message;
-        chatbotMessages.appendChild(messageElement);
-    }
-
-    if (openChatbotButton && closeChatbotButton && chatbotContainer && chatbotMessages && chatbotInput && sendMessageButton) {
-        openChatbotButton.addEventListener('click', () => {
-            console.log('Opening chatbot...');
-            chatbotContainer.style.display = 'flex';
-            openChatbotButton.style.display = 'none';
-        });
-
-        closeChatbotButton.addEventListener('click', () => {
-            console.log('Closing chatbot...');
-            chatbotContainer.style.display = 'none';
-            openChatbotButton.style.display = 'block';
-        });
-
-        sendMessageButton.addEventListener('click', () => {
-            const userMessage = chatbotInput.value.trim();
-            if (userMessage) {
-                addMessage(userMessage, 'user-message');
-                chatbotInput.value = '';
-                getBotResponse(userMessage).then(response => {
-                    addMessage(response, 'bot-message');
-                }).catch(error => {
-                    console.error('Error getting bot response:', error);
-                    addMessage('Sorry, I couldn\'t fetch a response at the moment.', 'bot-message');
-                });
-            }
-        });
-
-        chatbotInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                sendMessageButton.click();
-            }
-        });
-    } else {
-        console.error('One or more chatbot elements not found.');
-    }
-
-    async function getBotResponse(message) {
-        console.log('Sending request to serverless function...');
-        try {
-            const response = await fetch('/api/chatbot', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message })
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            console.log('Response from backend:', data);
-            return data.response.trim();
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            throw error;
-        }
-    }
-
     window.downloadFile = function(url) {
         const a = document.createElement('a');
         a.href = url;
@@ -174,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.removeChild(a);
     };
     
-    // Add event listeners for random card and random deck
     const randomCardBtn = document.getElementById('random-card');
     const randomDeckBtn = document.getElementById('random-deck');
 
@@ -243,13 +166,12 @@ document.addEventListener("DOMContentLoaded", function () {
             
             const filteredCards = cards.filter(card => card.archetype === randomArchetype);
     
-            // Displaying the type of deck
-            console.log(`Current deck type: ${randomArchetype}`);
+            // Displaying the type of deck in card container
+            cardContainer.innerHTML = `<p>Deck Type: ${randomArchetype}</p>`;
     
             displayCards(filteredCards);
         } catch (error) {
             console.error('Error fetching random deck:', error);
         }
     }
-    
 });
